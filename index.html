@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Be Pro - Pomodoro & Tasks</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;900&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        .page { display: none; }
+        .page.active { display: flex; }
+    </style>
+</head>
+<body class="bg-gray-100 min-h-screen flex items-center justify-center p-4">
+
+    <div class="bg-white w-full max-w-[360px] h-[640px] rounded-[50px] shadow-2xl overflow-hidden relative border-[8px] border-white">
+        
+        <section id="page-home" class="page active flex-col h-full p-8">
+            <header class="flex justify-between items-center text-gray-400">
+                <span class="text-2xl cursor-pointer">☰</span>
+                <h1 class="text-[10px] font-black tracking-[0.3em] uppercase text-gray-800">Pomodoro</h1>
+                <span class="text-2xl cursor-pointer">🔔</span>
+            </header>
+
+            <div class="mt-8 bg-pink-100 rounded-[30px] p-5">
+                <h2 class="text-[10px] font-black text-gray-800 uppercase mb-1">Good Morning, Sara</h2>
+                <div class="flex items-center gap-3">
+                    <div class="bg-white w-10 h-10 rounded-full flex items-center justify-center font-bold text-pink-400 text-xs shadow-sm">50%</div>
+                    <p class="text-[9px] font-bold text-gray-600 leading-tight uppercase">Focus on your goals!</p>
+                </div>
+            </div>
+
+            <div class="flex-1 flex flex-col items-center justify-center mt-4">
+                <div class="w-56 h-56 rounded-full border-[15px] border-pink-50 flex flex-col items-center justify-center mb-8 shadow-inner bg-white">
+                    <span id="timer-digits" class="text-5xl font-black text-gray-800 tracking-tighter">25:00</span>
+                    <p class="text-[10px] text-gray-300 mt-2 font-bold uppercase tracking-widest">Session 1/5</p>
+                </div>
+                <button id="start-btn" class="px-12 py-4 bg-pink-200 hover:bg-pink-300 text-gray-700 font-black rounded-2xl transition-all uppercase text-[10px] tracking-[0.2em] shadow-sm">
+                    start
+                </button>
+            </div>
+
+            <footer class="mt-7 flex justify-around items-center bg-gray-50 rounded-3xl p-4 mb-2">
+                <button class="text-pink-400 text-xl">🏠</button>
+                <button id="go-to-add" class="bg-gray-900 text-white w-14 h-14 rounded-full flex items-center justify-center text-3xl shadow-xl transform -translate-y-8 hover:scale-110 transition-all active:scale-95 z-50">
+                    +
+                </button>
+                <button class="text-gray-300 text-xl">👤</button>
+            </footer>
+        </section>
+
+        <section id="page-add" class="page flex-col h-full p-5 bg-pink-50">
+            <header class="flex items-center mb-10">
+                <button id="back-to-home" class="bg-white w-10 h-10 rounded-full shadow-sm flex items-center justify-center text-gray-600 hover:bg-gray-100">←</button>
+                <h1 class="ml-4 font-black text-gray-800 uppercase tracking-tighter">Today's Tasks</h1>
+            </header>
+
+            <div class="flex-1 overflow-y-auto pr-2 custom-scrollbar">
+                <div id="tasks-list" class="space-y-4">
+                    </div>
+            </div>
+
+            <div class="mt-6 bg-white p-4 pr-6 rounded-[30px] shadow-lg">
+                <label class="text-[10px] font-black text-gray-400 uppercase mb-3 block">New Mission</label>
+                <div class="flex gap-3">
+                    <input type="text" id="task-input" placeholder="Entrez les nouvelles task..." class="flex-1 text-xs p-3 bg-gray-50 rounded-2xl focus:outline-none focus:ring-2 focus:ring-pink-200">
+                    <button id="add-task-btn" class="bg-gray-900 text-white px-5 rounded-2xl font-black text-xs hover:bg-black transition-colors uppercase">Add</button>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <script type="module" src="app.js"></script>
+</body>
+</html>
