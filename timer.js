@@ -10,5 +10,7 @@ export const timerModule = {
                 onFinish();
             }
         }, 1000);
+        
     }
+
 };
