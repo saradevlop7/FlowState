@@ -3,5 +3,6 @@ export const ui = {
     clearInput: (input) => input.value = '',
     showMessage: (container, msg) => {
         container.innerHTML = `<p class="empty-state">${msg}</p>`;
+        
     }
 };
